@@ -1,7 +1,17 @@
 body {
     font-family: Arial;
-    background-color: #f0f0f0;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.container {
     text-align: center;
+    padding: 40px;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
 }
 
 ul {
@@ -10,16 +20,26 @@ ul {
 }
 
 li {
-    border: 1px solid black;
-    margin: 10px;
+    background: white;
+    margin: 10px auto;
     padding: 10px;
-    background-color: white;
+    width: 300px;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-li input {
-    margin-right: 10px;
+/* 🌞 LIGHT */
+.light {
+    background: #f2f2f2;
+    color: black;
 }
 
-li button {
-    margin-left: 10px;
+/* 🌙 DARK */
+.dark {
+    background: #121212;
+    color: white;
+}
+
+.dark li {
+    background: #1f1f1f;
 }
