@@ -1,29 +1,39 @@
-let pole = document.getElementById("tekst");
-let przycisk = document.getElementById("przycisk");
-let lista = document.getElementById("task-list");
+class TodoApp {
+    constructor() {
+        this.pole = document.getElementById("tekst");
+        this.przycisk = document.getElementById("przycisk");
+        this.lista = document.getElementById("task-list");
 
-przycisk.onclick = function() {
-    let li = document.createElement("li");
+        this.przycisk.onclick = () => this.dodajZadanie();
+    }
 
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
+    dodajZadanie() {
+        let li = document.createElement("li");
 
-    let tekst = document.createTextNode(pole.value);
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
 
-    let usun = document.createElement("button");
-    usun.textContent = "Usuń";
+        let tekst = document.createTextNode(this.pole.value);
 
-    checkbox.onchange = function() {
-        li.style.textDecoration = checkbox.checked ? "line-through" : "none";
-    };
+        let usun = document.createElement("button");
+        usun.textContent = "Usuń";
 
-    usun.onclick = function() {
-        li.remove();
-    };
+        checkbox.onchange = () => {
+            li.style.textDecoration = checkbox.checked ? "line-through" : "none";
+        };
 
-    li.appendChild(checkbox);
-    li.appendChild(tekst);
-    li.appendChild(usun);
+        usun.onclick = () => {
+            li.remove();
+        };
 
-    lista.appendChild(li);
-};
+        li.appendChild(checkbox);
+        li.appendChild(tekst);
+        li.appendChild(usun);
+
+        this.lista.appendChild(li);
+
+        this.pole.value = ""; 
+    }
+}
+
+new TodoApp();
