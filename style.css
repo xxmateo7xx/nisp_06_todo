@@ -19,3 +19,7 @@ li {
 li input {
     margin-right: 10px;
 }
+
+li button {
+    margin-left: 10px;
+}

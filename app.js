@@ -10,16 +10,20 @@ przycisk.onclick = function() {
 
     let tekst = document.createTextNode(pole.value);
 
+    let usun = document.createElement("button");
+    usun.textContent = "Usuń";
+
     checkbox.onchange = function() {
-        if (checkbox.checked) {
-            li.style.textDecoration = "line-through";
-        } else {
-            li.style.textDecoration = "none";
-        }
+        li.style.textDecoration = checkbox.checked ? "line-through" : "none";
+    };
+
+    usun.onclick = function() {
+        li.remove();
     };
 
     li.appendChild(checkbox);
     li.appendChild(tekst);
+    li.appendChild(usun);
 
     lista.appendChild(li);
 };
