@@ -1,39 +1,41 @@
-class TodoApp {
-    constructor() {
-        this.pole = document.getElementById("tekst");
-        this.przycisk = document.getElementById("przycisk");
-        this.lista = document.getElementById("task-list");
+let pole = document.getElementById("tekst");
+let przycisk = document.getElementById("przycisk");
+let lista = document.getElementById("task-list");
+let themeBtn = document.getElementById("themeBtn");
 
-        this.przycisk.onclick = () => this.dodajZadanie();
-    }
+document.body.classList.add("light");
 
-    dodajZadanie() {
-        let li = document.createElement("li");
+themeBtn.onclick = function () {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+};
 
-        let checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
+przycisk.onclick = function () {
+    if (pole.value === "") return;
 
-        let tekst = document.createTextNode(this.pole.value);
+    let li = document.createElement("li");
 
-        let usun = document.createElement("button");
-        usun.textContent = "Usuń";
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
 
-        checkbox.onchange = () => {
-            li.style.textDecoration = checkbox.checked ? "line-through" : "none";
-        };
+    let tekst = document.createTextNode(pole.value);
 
-        usun.onclick = () => {
-            li.remove();
-        };
+    let usun = document.createElement("button");
+    usun.textContent = "Usuń";
 
-        li.appendChild(checkbox);
-        li.appendChild(tekst);
-        li.appendChild(usun);
+    checkbox.onchange = function () {
+        li.style.textDecoration = checkbox.checked ? "line-through" : "none";
+    };
 
-        this.lista.appendChild(li);
+    usun.onclick = function () {
+        li.remove();
+    };
 
-        this.pole.value = ""; 
-    }
-}
+    li.appendChild(checkbox);
+    li.appendChild(tekst);
+    li.appendChild(usun);
 
-new TodoApp();
+    lista.appendChild(li);
+
+    pole.value = "";
+};
