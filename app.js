@@ -15,24 +15,33 @@ przycisk.onclick = function () {
 
     let li = document.createElement("li");
 
+    let left = document.createElement("div");
+    left.style.display = "flex";
+    left.style.alignItems = "center";
+    left.style.gap = "10px";
+
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 
-    let tekst = document.createTextNode(pole.value);
+    let tekst = document.createElement("span");
+    tekst.textContent = pole.value;
 
     let usun = document.createElement("button");
-    usun.textContent = "Usuń";
+    usun.textContent = "✖";
 
     checkbox.onchange = function () {
-        li.style.textDecoration = checkbox.checked ? "line-through" : "none";
+        tekst.style.textDecoration = checkbox.checked ? "line-through" : "none";
+        tekst.style.opacity = checkbox.checked ? "0.5" : "1";
     };
 
     usun.onclick = function () {
         li.remove();
     };
 
-    li.appendChild(checkbox);
-    li.appendChild(tekst);
+    left.appendChild(checkbox);
+    left.appendChild(tekst);
+
+    li.appendChild(left);
     li.appendChild(usun);
 
     lista.appendChild(li);

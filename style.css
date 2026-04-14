@@ -1,45 +1,134 @@
+/* 🌈 BACKGROUND GRADIENT */
 body {
-    font-family: Arial;
     margin: 0;
-    transition: 0.3s;
+    font-family: Arial;
+    transition: 0.4s;
+    min-height: 100vh;
 }
 
-.container {
+/* 🔥 APP WRAPPER */
+.app {
     text-align: center;
     padding: 40px;
 }
 
-input, button {
-    padding: 10px;
-    margin: 5px;
+/* 🌟 FORM CARD (GLASS EFFECT) */
+.form-card {
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
 }
 
+/* 🌟 LIST CARD */
+.list-card {
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+/* TITLE */
+.title {
+    margin: 0 0 15px 0;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+/* INPUT */
+input {
+    padding: 10px;
+    width: 60%;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* LIST */
 ul {
     list-style: none;
     padding: 0;
 }
 
 li {
-    background: white;
-    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
     padding: 10px;
-    width: 300px;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: 0.3s;
 }
 
-/* 🌞 LIGHT */
+/* 🌙 LIGHT MODE */
 .light {
-    background: #f2f2f2;
-    color: black;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    color: #111;
 }
 
-/* 🌙 DARK */
+.light .form-card {
+    background: rgba(255,255,255,0.6);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.light .list-card {
+    background: rgba(255,255,255,0.7);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.light li {
+    background: rgba(255,255,255,0.8);
+}
+
+/* 🌙 DARK MODE */
 .dark {
-    background: #121212;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: white;
 }
 
+.dark .form-card {
+    background: rgba(30,41,59,0.7);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.dark .list-card {
+    background: rgba(15,23,42,0.7);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
 .dark li {
-    background: #1f1f1f;
+    background: rgba(51,65,85,0.8);
+}
+
+/* ANIMACJA POJAWIANIA */
+li {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
